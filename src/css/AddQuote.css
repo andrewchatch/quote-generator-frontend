@@ -1,0 +1,27 @@
+#add-quote-form {
+    width: 60vw;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#quote-input {
+    height: 150px;
+}
+
+#submit-button {
+    width: fit-content;
+}
+
+#submit-link-to-home {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+}
+
+.btn {
+    margin-top: 3vh;
+}

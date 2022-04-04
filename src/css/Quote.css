@@ -1,0 +1,23 @@
+.quote-section {
+    height: 70vh;
+    width: 60vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: lemonchiffon;
+    border-radius: 20px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+}
+
+
+.quote {
+    width: 40vw;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2em;
+}
