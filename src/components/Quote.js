@@ -17,6 +17,9 @@ export default class Quote extends React.Component {
                 this.setState({
                     quotesList: res.data
                 });
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
     }

@@ -26,6 +26,9 @@ export default class Home extends React.Component {
                 }, () => {
                     this.generateRandomQuote();
                 });
+            })
+            .catch((err) => {
+                console.log(err);
             });
 
     }
