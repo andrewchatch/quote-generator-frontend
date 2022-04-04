@@ -1,8 +1,7 @@
 {
   "name": "quote-generator-frontend",
   "version": "0.1.0",
-  "homepage": "http://andrewchatch.github.io/quote-generator-frontend",
-  "proxy": "https://quote-generator-2.herokuapp.com/",
+  "homepage": "https://andrewchatch.github.io/quote-generator-frontend",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.3",

@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import '../css/AddQuote.css';
+
+const url = 'https://quote-generator-2.herokuapp.com';
 
 export default class AddQuote extends React.Component {
     constructor() {
@@ -46,9 +48,10 @@ export default class AddQuote extends React.Component {
             "author": authorInput.value
         }
 
-        await axios.post('/quotes', quote)
+        await axios.post(url + '/quotes', quote)
             .then((res) => {
                 console.log(res);
+                // window.location.href = 'https://andrewchatch.github.io/quote-generator-frontend/';
             })
             .catch(err => {
                 console.log(err);
@@ -56,15 +59,19 @@ export default class AddQuote extends React.Component {
 
     }
 
-    async handleKeyDown(event) {
+    handleKeyDown(event) {
+
         if(event.code && event.code === "Enter") {
-            console.log('Yes');
-            await this.handleSubmit(event);
+            event.preventDefault();
+
+            window.alert('Please click the submit button');
+            // console.log('Method works');
+            // this.handleSubmit(event);
         }
         else {
-            console.log('No');
             return;
         }
+
     }
 
     render() {
@@ -74,15 +81,15 @@ export default class AddQuote extends React.Component {
 
                 <form id="add-quote-form">
                     <label htmlFor="quote">Quote text here:</label>
-                    <textarea id="quote-input" name="quote" required ></textarea>
+                    <textarea id="quote-input" name="quote" required onKeyDown={this.handleKeyDown}></textarea>
 
                     <label htmlFor="author">Author:</label>
-                    <input id="author-input" type="text" name="author" required />
+                    <input id="author-input" type="text" name="author" required onKeyDown={this.handleKeyDown}/>
 
                 </form>
 
                 <Link to="/" id="back-button"><button className="btn btn-primary">Back</button></Link>
-                <Link id="submit-link-to-home" to="/"><input id="submit-button" type="submit" name="submit-form" className="btn btn-primary" onClick={this.handleSubmit} onKeyDown={this.handleKeyDown}/></Link>
+                <Link id="submit-link-to-home" to="/"><input id="submit-button" type="submit" name="submit-form" className="btn btn-primary" onClick={this.handleSubmit} onSubmit={this.handleKeyDown}/></Link>
 
             </div>
         );

@@ -9,20 +9,17 @@ export default class Quote extends React.Component {
             quotesList: [],
             currentQuote: props.currentQuote
         }
+
     }
 
     componentDidMount() {
-        axios.get('/quotes' )
-            .then((res) => {
-                this.setState({
-                    quotesList: res.data
-                });
-            })
-            .catch((err) => {
-                console.log(err);
-            });
+        const elem = document.getElementsByClassName('quote-section');
 
+        for(let i = 0; i < elem.length; i++) {
+            elem[i].style.display = 'flex';
+        }
     }
+
 
     render() {
         const quote = this.props.currentQuote;

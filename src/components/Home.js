@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Quote from './Quote';
 import '../css/Home.css';
 
-
+const url = 'https://quote-generator-2.herokuapp.com';
 
 export default class Home extends React.Component {
     constructor() {
@@ -19,7 +19,13 @@ export default class Home extends React.Component {
     }
 
     componentDidMount() {
-        axios.get('/quotes' )
+        const elems = document.getElementsByClassName('quote-section');
+
+        for(let i = 0; i < elems.length; i++) {
+            elems[i].style.display = 'flex';
+        }
+
+        axios.get(url + '/quotes' )
             .then((res) => {
                 this.setState({
                     quotesList: res.data

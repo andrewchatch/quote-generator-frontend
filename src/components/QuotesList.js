@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import Quote from "./Quote";
 import '../css/QuotesList.css';
 
+const url = 'https://quote-generator-2.herokuapp.com';
+
 export default class QuotesList extends React.Component {
     constructor() {
         super();
@@ -11,10 +13,12 @@ export default class QuotesList extends React.Component {
             quotesList: [],
             currentQuote: {}
         }
+
     }
 
     componentDidMount() {
-        axios.get('/quotes' )
+
+        axios.get(url + '/quotes' )
             .then((res) => {
                 this.setState({
                     quotesList: res.data
@@ -24,7 +28,9 @@ export default class QuotesList extends React.Component {
                 console.log(err);
             });
 
+            
     }
+    
     
     render() {
 
